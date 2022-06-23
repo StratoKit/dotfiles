@@ -35,6 +35,7 @@
       homeConfigurations = {
         ${username} = inputs.home-manager.lib.homeManagerConfiguration rec {
           inherit username homeDirectory system;
+          pkgs = inputs.nixpkgs.outputs.legacyPackages.${system};
           configuration.imports = [
             ({ config, pkgs, lib, ... }: {
               nixpkgs.config = {
