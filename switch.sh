@@ -31,7 +31,7 @@ if ! grep -q flakes /etc/nix/nix.conf; then
 fi
 
 username=$USER
-hostname=$HOST
+hostname=$(hostname)
 system=$(nix-instantiate --eval --strict -E '(import <nixpkgs> {}).stdenv.hostPlatform.system')
 
 if [ -z "$username" ] || [ -z "$hostname" ] || [ -z "$system" ]; then
